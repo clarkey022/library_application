@@ -1,27 +1,50 @@
-<div id="<%= dom_id book %>">
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
+<div style="display:flex; flex-direction: column; width: 100%; height: 80%; align-items: center; justify-content: space-around;">
+  <h1 style="color: white;">View</h1>
+  <div id="<%= dom_id book %>" style="display: flex; flex-direction: row; background: black; border-radius: 10px; color: white; padding: 20px; width: 80%; height: 80%; align-items: stretch; font-size: 1.8rem;">
+    <div style="display:flex; flex-direction: column; justify-content: space-between; flex: 1 1 0; ">
+      <div><p style="font-size: 4rem">
+          <strong><%= book.title %></strong>
+        </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
+        <p>
+          by <%= book.author %>
+        </p>
+      </div>
 
-  <p>
-    <strong>Isbn:</strong>
-    <%= book.ISBN %>
-  </p>
+        <p>
+          Released <%= book.date %>
+        </p>
+    </div>
+    <div style="display:flex; flex-direction: column; flex: 1 1 0; background: linear-gradient(white, grey); border-radius: 10px; padding: 20px; color: black; font-size: 1.6rem; justify-content: space-around;">
+      <p>
+        <strong>System Details</strong>
+      </p>
+      <p>
+        <strong>Isbn:</strong>
+        <%= book.ISBN %>
+      </p>
 
-  <p>
-    <strong>Loan status:</strong>
-    <%= book.loan_status %>
-  </p>
+      <p>
+        <strong>Uploaded:</strong>
+        <%= remove_trailing_UTC(book.created_at) %>
+      </p>
 
-  <p>
-    <strong>Loaned to:</strong>
-    <%= book.loaned_to %>
-  </p>
+      <p><strong>Loan status:</strong>
+        <%= convert_loan_status(book.loan_status) %>
+      </p>
 
+      <p>
+        <strong>Loaned to:</strong>
+        <%= encrich_onLoan_text(book.loaned_to) %>
+      </p>
+        <div style="display: flex; justify-content: space-around; width: 100%;">
+        
+        <%= link_to '<button type="button" class="btn btn-dark btn-lg">Back</button>'.html_safe, books_path %>
+        <%= link_to '<button type="button" class="btn btn-dark btn-lg">Edit</button>'.html_safe, edit_book_path(@book) %>
+
+        <%= button_to "Delete", @book, method: :delete, data: {  }, :class => "btn btn-dark btn-lg" %>
+        </div>
+
+    </div>
+  </div>
 </div>
