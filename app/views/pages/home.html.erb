@@ -1,3 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "About link", about_path %>
+<div class="container-fluid text-center">
+    <h1>Welcome to the Library Administration Application!</h1>
+    <p>Use the buttons below or the Navbar to view books and users stored in this system. From these pages you will also be able to add, remove and edit items.</p>
+    
+    <%= link_to '<button type="button" class="btn btn-light">Books</button>'.html_safe, about_path %>
+    <%= link_to '<button type="button" class="btn btn-light">Users</button>'.html_safe, about_path %>
+</div>
