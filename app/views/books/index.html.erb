@@ -1,6 +1,4 @@
-<div class="container-fluid text-center text-white" style="margin-top: 50px;">
-
-<p style="color: white"><%= notice %></p>
+<div class="container-fluid text-center text-white" style="margin-top: 20px;">
 
 <h1>Books</h1>
 
@@ -28,11 +26,11 @@
       <td><%= book.author %></td>
       <td><%= book.ISBN %></td>
       <td><%= book.date %></td>
-      <td><%= book.loan_status %></td>
+      <td><%= convert_loan_status(book.loan_status) %></td>
       <td><%= book.created_at %></td>
       <td><%= link_to '<button type="button" class="btn btn-light btn-sm">View</button>'.html_safe, book %></td>
-      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">Edit</button>'.html_safe, book %></td>
-      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">Delete</button>'.html_safe, book %></td>
+      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">Edit</button>'.html_safe, edit_book_path(book) %></td>
+      <td><%= button_to "Delete", book, method: :delete, data: {  }, :class => "btn btn-light btn-sm" %></td>
 </tr>
   <% end %>
   </tbody>

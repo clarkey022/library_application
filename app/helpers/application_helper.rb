@@ -13,9 +13,9 @@ module ApplicationHelper
 
     def encrich_onLoan_text(user_id)
         if user_id != nil 
-            "This book is on loan to user " + user_id
+            "This book is on loan to user " + user_id.to_s
         else 
-            "This book is not on loan to anyone"
+            "This book is not on loan"
         end
     end
 end
