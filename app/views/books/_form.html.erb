@@ -21,7 +21,7 @@
 
   <div style="margin-top: 5px;">
     <%= form.label :loaned_to, style: "display: block; color: white; font-size: 1.3rem;" %>
-    <%= collection_select(:book, :loaned_to, Book.all, :ISBN, :ISBN, prompt: true) %>
+    <%= collection_select(:book, :loaned_to, Book.all, :ISBN, :ISBN,{:include_blank => "Please Select"} , { :disabled => !@book.loan_status ? 'disabled' : nil}) %>
   </div>
 
   <div style="margin-top: 15px; width: 100%; display: flex; align-items: center; justify-content: center;">
@@ -48,6 +48,10 @@
 <script type="text/javascript" >
     $(document).ready(function () {
     return $("#book_loan_status").click(function () {
+          $("#book_loaned_to option:first").prop('selected',true);
+        if (this.checked) { 
+          $("#book_loaned_to").prop('required',true);
+        }
         return $("#book_loaned_to").prop("disabled", !this.checked);
     });
 });

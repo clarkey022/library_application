@@ -21,7 +21,12 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
-    @book = Book.new(book_params)
+    copy_params = book_params
+    if copy_params[:loan_status] == "0"
+      copy_params[:loaned_to] = nil
+    end
+
+    @book = Book.new(copy_params)
 
     respond_to do |format|
       if @book.save
@@ -36,8 +41,12 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+    copy_params = book_params
+    if copy_params[:loan_status] == "0"
+      copy_params[:loaned_to] = nil
+    end
     respond_to do |format|
-      if @book.update(book_params)
+      if @book.update(copy_params)
         format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
