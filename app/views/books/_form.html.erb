@@ -1,31 +1,36 @@
 <%= form_with(model: book) do |form| %>
   <div style="margin-top: 10px;">
-    <%= form.label :title, style: "display: block; color: white; font-size: 1.3rem;" %>
-    <%= form.text_field :title, style: "border-radius: 5px; border: none; font-size: 1.3rem;" %>
+    <%= form.label :title, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :title, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
   </div>
 
   <div style="margin-top: 5px;">
-    <%= form.label :author, style: "display: block; color: white; font-size: 1.3rem;" %>
-    <%= form.text_field :author, style: "border-radius: 5px; border: none; font-size: 1.3rem;" %>
+    <%= form.label :author, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :author, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
   </div>
 
   <div style="margin-top: 5px;">
-    <%= form.label :ISBN, style: "display: block; color: white; font-size: 1.3rem;" %>
-    <%= form.number_field :ISBN, style: "border-radius: 5px; border: none; font-size: 1.3rem;" %>
+    <%= form.label :ISBN, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.number_field :ISBN, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
   </div>
 
   <div style="margin-top: 5px;">
-    <%= form.label :loan_status, style: "display: block; color: white; font-size: 1.3rem;" %>
+    <%= form.label :date, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.date_field :date, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :loan_status, style: "display: block; color: white; font-size: 1.2rem;" %>
     <%= form.check_box :loan_status %>
   </div>
 
   <div style="margin-top: 5px;">
-    <%= form.label :loaned_to, style: "display: block; color: white; font-size: 1.3rem;" %>
-    <%= collection_select(:book, :loaned_to, Book.all, :ISBN, :ISBN,{:include_blank => "Please Select"} , { :disabled => !@book.loan_status ? 'disabled' : nil}) %>
+    <%= form.label :loaned_to, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= collection_select(:book, :loaned_to, User.all, :name, :name,{:include_blank => "Please Select"} , { :disabled => !@book.loan_status ? 'disabled' : nil}) %>
   </div>
 
   <div style="margin-top: 15px; width: 100%; display: flex; align-items: center; justify-content: center;">
-    <%= form.submit class: "btn btn-dark btn-lg" %>
+    <%= form.submit class: "btn btn-dark" %>
   </div>
 
   <% if book.errors.any? %>
