@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_24_112351) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_24_122452) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.integer "ISBN"
     t.boolean "loan_status"
-    t.integer "loaned_to"
+    t.string "loaned_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"

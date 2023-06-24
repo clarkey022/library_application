@@ -11,9 +11,9 @@ module ApplicationHelper
         created_at.strftime("%a, %d %b %Y %H:%M:%S")
     end
 
-    def encrich_onLoan_text(user_id)
-        if user_id != nil 
-            "This book is on loan to user " + user_id.to_s
+    def encrich_onLoan_text(user_name)
+        if user_name != nil 
+            "This book is on loan to user " + user_name
         else 
             "This book is not on loan"
         end
