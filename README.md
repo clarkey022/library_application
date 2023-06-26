@@ -24,3 +24,4 @@ The application was developed on a Windows machine, it has not been tested on Li
 
 * When running bundle install, if encounter fetch errors its probably due to iPv6 being enabled. Disable this, for some reason the gems server doesn't like it.
 * There maybe a number of dependency conflicts/version issues to resolve depending on what is already installed. Best approach is to just delete the Gemfile.lock and redo `bundle install`
+* The frontend is not particularly 'refined' for this project as most of the focus has been on the backend. With this in mind, you may want to `Ctrl + -` or `Ctrl + =` in the browser to get the views fitting nicely. The browser used for development was Google Chrome. It has not been tested in Edge, Firefox, Safari or IE. 
