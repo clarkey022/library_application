@@ -15,6 +15,6 @@ The application was developed on a Windows machine, it has not been tested on Li
   - `git clone` this repo
   - `bundle install`
   - `rails db:migrate`
-  - `rails rspec` (optional)
+  - `rspec` (optional)
   - `rails db:seed` (optional)
   - `rails s`
