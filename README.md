@@ -1,7 +1,6 @@
-# Ruby-on-Rails Library Application
+## Ruby-on-Rails Library Administration Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This a demo Library Administration application using Ruby-on-Rails with RSpec
 
 # Setup Instructions
 
