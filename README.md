@@ -15,10 +15,12 @@ The application was developed on a Windows machine, it has not been tested on Li
   - `git clone` this repo
   - `bundle install`
   - `rails db:migrate`
-  - `rspec` (optional)
-  - `rails db:seed` (optional)
+  - `rails db:migrate RAILS_ENV=test` (optional if you want to run Rspec tests)
+  - `rspec` (optional if you want to run Rspec tests)
+  - `rails db:seed` (optional if you want to populate with seed data)
   - `rails s`
  
 ## Known Setup Bugs
 
 * When running bundle install, if encounter fetch errors its probably due to iPv6 being enabled. Disable this, for some reason the gems server doesn't like it.
+* There maybe a number of dependency conflicts/version issues to resolve depending on what is already installed. Best approach is to just delete the Gemfile.lock and redo `bundle install`
