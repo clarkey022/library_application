@@ -51,7 +51,7 @@
     </script>
 
 <script type="text/javascript" >
-    $(document).ready(function () {
+    $(document).on('ready turbolinks:load', function () {
     return $("#book_loan_status").click(function () {
           $("#book_loaned_to option:first").prop('selected',true);
         if (this.checked) { 
