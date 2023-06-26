@@ -49,6 +49,9 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+
+    Book.where(loaned_to: @user.name).update(loan_status: false, loaned_to: nil)
+
     @user.destroy
 
     respond_to do |format|
