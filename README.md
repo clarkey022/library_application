@@ -18,3 +18,7 @@ The application was developed on a Windows machine, it has not been tested on Li
   - `rspec` (optional)
   - `rails db:seed` (optional)
   - `rails s`
+ 
+## Known Setup Bugs
+
+* When running bundle install, if encounter fetch errors its probably due to iPv6 being enabled. Disable this, for some reason the gems server doesn't like it.
