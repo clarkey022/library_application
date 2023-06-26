@@ -1,0 +1,12 @@
+<div style="display:flex; flex-direction: column; width: 100%; height: 80%; align-items: center; justify-content: center;">
+
+<h1 style="color: white;">Add</h1>
+
+<%= render "form", user: @user %>
+
+<br>
+
+<div>
+  <%= link_to '<button type="button" class="btn btn-light">Back to Users</button>'.html_safe, users_path %>
+</div>
+</div>

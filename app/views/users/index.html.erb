@@ -1,0 +1,38 @@
+<div class="container-fluid text-center text-white" style="margin-top: 20px;">
+
+<h1>Users</h1>
+
+<div class="twrap" style="margin-top: 50px;">
+<table class="table table-light table-hover" style=" text-align: left;">
+  <thead class="fixed">
+    <tr>
+      <th scope="col" width="5%">ID</th>
+      <th scope="col" width="10%">Title</th>
+      <th scope="col" width="20%">Name</th>
+      <th scope="col" width="15%">DOB</th>
+      <th scope="col" width="10%">Role</th>
+      <th scope="col" width="25%">Date Added</th>
+      <th scope="col" width="5%"></th>
+      <th scope="col" width="5%"></th>
+      <th scope="col" width="5%"></th>
+    </tr>
+  </thead>
+  <tbody style="overflow-y: scroll;">
+    <% @users.each do |user| %>
+    <tr id="<%= dom_id user %>">
+      <th scope="row"><%= user.id %></th>
+      <td><%= user.title %></td>
+      <td><%= user.name %></td>
+      <td><%= user.dob %></td>
+      <td><%= user.role %></td>
+      <td><%= user.created_at %></td>
+      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">View</button>'.html_safe, user %></td>
+      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">Edit</button>'.html_safe, edit_user_path(user) %></td>
+      <td><%= button_to "Delete", user, method: :delete, data: {  }, :class => "btn btn-light btn-sm" %></td>
+</tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to '<button style="margin-top: 25px;" type="button" class="btn btn-dark btn-lg">Add User</button>'.html_safe, new_user_path %>
+</div>

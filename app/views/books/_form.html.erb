@@ -1,0 +1,63 @@
+<%= form_with(model: book) do |form| %>
+  <div style="margin-top: 10px;">
+    <%= form.label :title, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :title, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :author, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :author, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :ISBN, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.number_field :ISBN, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :date, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.date_field :date, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :loan_status, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.check_box :loan_status %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :loaned_to, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= collection_select(:book, :loaned_to, User.all, :name, :name,{:include_blank => "Please Select"} , { :disabled => !@book.loan_status ? 'disabled' : nil}) %>
+  </div>
+
+  <div style="margin-top: 15px; width: 100%; display: flex; align-items: center; justify-content: center;">
+    <%= form.submit class: "btn btn-dark" %>
+  </div>
+
+  <% if book.errors.any? %>
+    <div style="color: red; font-size: 1rem; left: 0; position: absolute; bottom: 30px; width: 100%; text-align: center;">
+      <p><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:
+
+      
+        <% book.errors.each_with_index do |error, index| %>
+          <%= error.full_message %>
+           <%= "," unless index == book.errors.size - 1 %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+    </script>
+
+<script type="text/javascript" >
+    $(document).ready(function () {
+    return $("#book_loan_status").click(function () {
+          $("#book_loaned_to option:first").prop('selected',true);
+        if (this.checked) { 
+          $("#book_loaned_to").prop('required',true);
+        }
+        return $("#book_loaned_to").prop("disabled", !this.checked);
+    });
+});
+</script>

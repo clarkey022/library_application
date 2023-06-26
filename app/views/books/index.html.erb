@@ -1,0 +1,41 @@
+<div class="container-fluid text-center text-white" style="margin-top: 20px;">
+
+<h1>Books</h1>
+
+<div class="twrap" style="margin-top: 50px;">
+<table class="table table-light table-hover" style=" text-align: left;">
+  <thead class="fixed">
+    <tr>
+      <th scope="col" width="5%">ID</th>
+      <th scope="col" width="15%">Title</th>
+      <th scope="col" width="20%">Author</th>
+      <th scope="col" width="10%">ISBN</th>
+      <th scope="col" width="10%">Release Date</th>
+      <th scope="col" width="10%">Loan Status</th>
+      <th scope="col" width="15%">Upload Date</th>
+      <th scope="col" width="5%"></th>
+      <th scope="col" width="5%"></th>
+      <th scope="col" width="5%"></th>
+    </tr>
+  </thead>
+  <tbody style="overflow-y: scroll;">
+    <% @books.each do |book| %>
+    <tr id="<%= dom_id book %>">
+      <th scope="row"><%= book.id %></th>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.ISBN %></td>
+      <td><%= book.date %></td>
+      <td><%= convert_loan_status(book.loan_status) %></td>
+      <td><%= book.created_at %></td>
+      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">View</button>'.html_safe, book %></td>
+      <td><%= link_to '<button type="button" class="btn btn-light btn-sm">Edit</button>'.html_safe, edit_book_path(book) %></td>
+      <td><%= button_to "Delete", book, method: :delete, data: {  }, :class => "btn btn-light btn-sm" %></td>
+</tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to '<button style="margin-top: 25px;" type="button" class="btn btn-dark btn-lg">Add Book</button>'.html_safe, new_book_path %>
+</div>
+

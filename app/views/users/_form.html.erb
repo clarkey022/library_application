@@ -1,0 +1,40 @@
+<%= form_with(model: user) do |form| %>
+  <div style="margin-top: 10px;">
+    <%= form.label :title, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :title, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :name, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :name, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :dob, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.date_field :dob, style: "width: 100%; border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 5px;">
+    <%= form.label :role, style: "display: block; color: white; font-size: 1.2rem;" %>
+    <%= form.text_field :role, style: "border-radius: 5px; border: none; font-size: 1.2rem;" %>
+  </div>
+
+  <div style="margin-top: 15px; width: 100%; display: flex; align-items: center; justify-content: center;">
+    <%= form.submit class: "btn btn-dark" %>
+  </div>
+
+  <% if user.errors.any? %>
+    <div style="color: red; font-size: 1rem; left: 0; position: absolute; bottom: 30px; width: 100%; text-align: center;">
+      <p><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:
+
+      
+        <% user.errors.each_with_index do |error, index| %>
+          <%= error.full_message %>
+           <%= "," unless index == user.errors.size - 1 %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
+

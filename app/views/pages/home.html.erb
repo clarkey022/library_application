@@ -1,7 +1,8 @@
-<div class="container-fluid text-center">
-    <h1>Welcome to the Library Administration Application!</h1>
-    <p>Use the buttons below or the Navbar to view books and users stored in this system. From these pages you will also be able to add, remove and edit items.</p>
+<div class="container-fluid text-center text-white" style="margin-top: 150px;">
+ <h1>Welcome to the Library Administration Application!</h1>
+    <p style="margin-top: 50px; margin-bottom: 50px;">Use the buttons below or the Navbar to view books and users stored in this system. From these pages you will also be able to add, remove and edit items.</p>
     
-    <%= link_to '<button type="button" class="btn btn-light">Books</button>'.html_safe, about_path %>
-    <%= link_to '<button type="button" class="btn btn-light">Users</button>'.html_safe, about_path %>
+        <%= link_to '<button type="button" style="margin-right: 50px;" class="btn btn-light btn-lg">Books</button>'.html_safe, books_path %>
+        <%= link_to '<button type="button" style="margin-left: 50px;" class="btn btn-light btn-lg">Users</button>'.html_safe, users_path %>
+    
 </div>

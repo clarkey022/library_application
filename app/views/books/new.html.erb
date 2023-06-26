@@ -1,0 +1,12 @@
+<div style="display:flex; flex-direction: column; width: 100%; height: 80%; align-items: center; justify-content: center;">
+
+<h1 style="color: white; margin-top: 50px;">Add</h1>
+
+<%= render "form", book: @book %>
+
+<br>
+
+<div>
+  <%= link_to '<button type="button" class="btn btn-light">Back to Books</button>'.html_safe, books_path %>
+</div>
+</div>
