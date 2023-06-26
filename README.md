@@ -1,4 +1,4 @@
-## Ruby-on-Rails Library Administration Application
+# Ruby-on-Rails Library Administration Application
 
 This a demo Library Administration application using Ruby-on-Rails with RSpec
 
