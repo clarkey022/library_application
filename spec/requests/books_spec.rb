@@ -18,11 +18,25 @@ RSpec.describe "/books", type: :request do
   # Book. As you add validations to Book, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      'title': 'The Two Towers',
+      'author': 'J.R.Tolkein',
+      'date': '11/11/1952',
+      'ISBN': 1234,
+      'loan_status': true,
+      'loaned_to': 'John Smith'
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      'title': 1234,
+      'author': 1234,
+      'date': false,
+      'ISBN': '1234',
+      'loan_status': 'a string',
+      'loaned_to': true
+    }
   }
 
   describe "GET /index" do
@@ -89,14 +103,16 @@ RSpec.describe "/books", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          'title': 'The Three Towers'
+        }
       }
 
       it "updates the requested book" do
         book = Book.create! valid_attributes
         patch book_url(book), params: { book: new_attributes }
         book.reload
-        skip("Add assertions for updated state")
+        expect(book.title).to eql new_attributes[:title]
       end
 
       it "redirects to the book" do
