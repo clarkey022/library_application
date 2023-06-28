@@ -21,6 +21,8 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+
+    # Catchment logic in place to always set loaned to null if loan status is false/0
     copy_params = book_params
     if copy_params[:loan_status] == "0"
       copy_params[:loaned_to] = nil
@@ -41,6 +43,8 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+
+    # Catchment logic in place to always set loaned to null if loan status is false/0
     copy_params = book_params
     if copy_params[:loan_status] == "0"
       copy_params[:loaned_to] = nil

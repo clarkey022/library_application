@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   # DELETE /users/1 or /users/1.json
   def destroy
 
+    # Catchment logic in place to reset loaned to value for Books relating to user being destroyed
     Book.where(loaned_to: @user.name).update(loan_status: false, loaned_to: nil)
 
     @user.destroy
